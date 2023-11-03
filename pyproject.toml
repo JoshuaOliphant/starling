@@ -8,6 +8,8 @@ packages = [{include = "repl_html_starling"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+openai = "^0.28.1"
+flask = "^3.0.0"
 
 
 [build-system]
