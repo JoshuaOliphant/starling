@@ -1,12 +1,11 @@
 import os
 import openai
-# import Chroma 
-from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
 from langchain.prompts.chat import ChatPromptTemplate
 
+
 class Chat:
+
   def __init__(self):
     openai.api_key = os.getenv("OPENAI_API_KEY")
     self.history = []
@@ -26,22 +25,25 @@ class Chat:
         ("system", template),
         ("human", human_template),
     ])
-    formatted_message = chat_prompt.format_messages(input_language="English", output_language="French", text="I love programming.")
+    formatted_message = chat_prompt.format_messages(input_language="English",
+                                                    output_language="French",
+                                                    text="I love programming.")
     print(formatted_message)
-    self.history.append(formatted_message)                    
+    self.history.append(formatted_message)
     chain = chat_prompt | self.llm
     response = chain.invoke(formatted_message)
     print(response)
-  
+
   def chat(self, question):
     self.history.append(prompt)
-    response = openai.ChatCompletion.create(
-        model=self.llm,
-        messages=[{"role": "user", "content": f"{question}"}],
-        temperature=0.8
-    )
+    response = openai.ChatCompletion.create(model=self.llm,
+                                            messages=[{
+                                                "role": "user",
+                                                "content": f"{question}"
+                                            }],
+                                            temperature=0.8)
     return response.choices[0].text.strip()
-  
+
   def chat_loop(self):
     while True:
       prompt = input("You: ")
@@ -50,6 +52,7 @@ class Chat:
       response = self.chat(prompt)
       print("Starling:", response)
       self.history.append(response)
+
 
 if __name__ == "__main__":
   chat = Chat()
