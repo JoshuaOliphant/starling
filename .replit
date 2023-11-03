@@ -1,0 +1,14 @@
+entrypoint = "starling/chat.py"
+run = "python3 starling/chat.py"
+onBoot = "source .venv/bin/activate"
+modules = ["python-3.10:v18-20230807-322e88b"]
+language = nix
+
+[nix]
+channel = "stable-23_05"
+
+[unitTest]
+language = "python3"
+
+[deployment]
+run = ["python3", "starling/chat.py"]
