@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "repl-html-starling"
+name = "starling"
 version = "0.1.0"
-description = ""
-authors = ["Replit user <<>>"]
+description = "An applicatioon for practicing S.T.A.R behavioral interview questions"
+authors = ["Joshua Oliphant"]
 readme = "README.md"
-packages = [{include = "repl_html_starling"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
