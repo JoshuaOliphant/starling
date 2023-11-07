@@ -15,7 +15,7 @@ class Chat:
     #   persist_directory=self.persist_directory,
     #   embedding_function=self.embeddings
     # )
-    self.llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+    self.llm = ChatOpenAI(model_name="gpt-4-1106-preview", temperature=0)
     response = self.llm.predict("What is the capital of France?")
     print(response)
     template = "You are a helpful assistant that translates {input_language} to {output_language}."
